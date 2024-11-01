@@ -1,0 +1,12 @@
+select id,Nome,Ano from filmes;
+select id,Nome,Ano,Duracao from filmes order by ano;
+select id,Nome,Ano,Duracao from filmes where  Nome like '%Futuro%';
+select id,Nome,Ano,Duracao from filmes where Ano = '1997';
+select id,Nome,Ano,Duracao from filmes where Ano >= '2000';
+select id,Nome,Ano,Duracao from filmes where Duracao > 100 and Duracao < 150 order by Duracao;
+select ano,COUNT('') as Quantidade from filmes group by ano order by Quantidade desc;
+select * from atores where Genero='M';
+select * from atores where Genero='F' order by PrimeiroNome;
+select filmes.Nome,Generos.Genero from FilmesGenero inner join Filmes on Filmes.Id = FilmesGenero.IdFilme inner join Generos on Generos.Id = FilmesGenero.IdGenero;
+select filmes.Nome,Generos.Genero from FilmesGenero inner join Filmes on Filmes.Id = FilmesGenero.IdFilme inner join Generos on Generos.Id = FilmesGenero.IdGenero where Generos.Genero like 'Mistério';
+select f.Nome,a.PrimeiroNome,a.UltimoNome,ef.Papel from ElencoFilme as ef inner join Filmes as f on f.Id = ef.Id inner join Atores a on a.id = ef.IdAtor;
